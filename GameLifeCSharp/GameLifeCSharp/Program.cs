@@ -55,7 +55,7 @@ namespace GameLife
                 }
 
             }
-
+           
             /*CHECK OF ALL CELLS*/
 
             for (int i = 1; i < 39; i++) // perimeter zero
