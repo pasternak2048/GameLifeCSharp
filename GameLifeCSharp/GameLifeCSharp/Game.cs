@@ -29,38 +29,35 @@ namespace GameLifeCSharp
 
         void EnterAxis()
         {
-            int xaxis = 0;
-            int yaxis = 0;
+            Console.WriteLine("Enter first axis"); 
+            f1.xAxis = IsNumberPositiveAndInteger();
+            Console.WriteLine("Enter second axis");
+            f1.yAxis = IsNumberPositiveAndInteger();
+            
+        }
+
+
+        int IsNumberPositiveAndInteger()
+        {
+            int userValue = 0;
             bool cycleParameter = true;
-            while (cycleParameter)
+            while(cycleParameter)
             {
-                Console.WriteLine("Enter first axis");
-                if (int.TryParse(Console.ReadLine(), out xaxis))
+                if (!(int.TryParse(Console.ReadLine(), out userValue)))
                 {
-                    f1.xAxis = xaxis;
-                    cycleParameter = false;
+                    Console.WriteLine("Wrong value. Value must be numeric(integer). Try again.");
+                }
+                else if (userValue <= 0)
+                {
+                    Console.WriteLine("Wrong value. Value must be a positive (integer). Try again.");
                 }
                 else
                 {
-                    Console.WriteLine("Wrong value.");
-                }
-            }
-
-            cycleParameter = true;
-
-            while (cycleParameter)
-            {
-                Console.WriteLine("Enter second axis");
-                if (int.TryParse(Console.ReadLine(), out yaxis))
-                {
-                    f1.yAxis = yaxis;
                     cycleParameter = false;
                 }
-                else
-                {
-                    Console.WriteLine("Wrong value.");
-                }
             }
+            
+            return userValue;
         }
     }
 }
